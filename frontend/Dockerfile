@@ -1,6 +1,5 @@
 # Pull the base image
-FROM node:19.5.0-alpine as builder
-
+FROM node:18.16.0-alpine
 # Set The Work Dir
 WORKDIR /usr/app/frontend
 
@@ -11,6 +10,7 @@ COPY ./package*.json ./
 #RUN npm config set legacy-peer-deps true
 #RUN npm cache clean --force
 RUN npm install
+RUN npm install @line/liff
 
 # Copy code from host to container
 COPY . .
