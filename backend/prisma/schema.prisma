@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+
+model Customer {
+  id  Int @id @default(autoincrement())
+  lineId  String @unique
+  displayName String
+  pictureUrl String?
+  coin Int? @default(0)
+  history History[]
+}
+
+model Machine {
+  id  Int @id @default(autoincrement())
+  name String
+  size  Int
+  price Int
+  duration  Int
+  active Boolean @default(false)
+  history History[]
+}
+
+model History {
+  id  Int @id @default(autoincrement())
+  startTime  String
+  duration Int
+  machineId  Int
+  machine  Machine @relation(fields: [machineId], references: [id])
+  customerId  Int
+  customer  Customer @relation(fields: [customerId], references: [id])
+  success Boolean @default(false)
+}

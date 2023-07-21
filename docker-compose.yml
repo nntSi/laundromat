@@ -1,0 +1,38 @@
+version: '3.9'
+
+networks:
+  web_network:
+    name: luandry_network
+    driver: bridge
+services:
+  frontendapp:
+    build:
+      context: ./frontend
+    restart: always
+    ports:
+      - 4173:4173
+    networks:
+      - web_network
+  backendapp:
+    build:
+      context: ./backend
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./backend:/usr/app/backend
+      - /usr/app/backend/node_modules
+    networks:
+      - web_network
+  nginx:
+    image: nginx:latest
+    container_name: nginx_webserver
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backendapp
+    networks:
+      - web_network
