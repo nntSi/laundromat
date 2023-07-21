@@ -11,6 +11,9 @@ services:
     restart: always
     ports:
       - 4173:4173
+    volumes:
+      - ./frontend:/usr/app/frontend
+      - /usr/app/frontend/node_modules
     networks:
       - web_network
   backendapp:
