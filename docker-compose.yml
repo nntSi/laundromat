@@ -14,6 +14,8 @@ services:
     volumes:
       - ./frontend:/usr/app/frontend
       - /usr/app/frontend/node_modules
+    depends_on:
+      - backendapp
     networks:
       - web_network
   backendapp:
