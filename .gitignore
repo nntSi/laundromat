@@ -2,3 +2,4 @@ node_modules
 ngrok.exe
 yarn.lock
 dev.db
+migrations
