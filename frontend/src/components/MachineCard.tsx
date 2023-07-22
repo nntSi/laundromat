@@ -91,7 +91,7 @@ const MachineCard = ({ machine_obj }: Props) => {
         isOpen={showConfirm}
         onClickBackdrop={() => setShowConfirm(false)}
         child={
-          <div className="w-96 bg-white rounded-xl overflow-hidden">
+          <div className="w-[300px] sm:w-[400px] bg-white rounded-xl overflow-hidden">
             <div className="p-4 bg-zinc-100 border-b font-semibold text-sm flex justify-between items-center">
               <p>Confirm the transaction</p>
               <button
