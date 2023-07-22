@@ -82,7 +82,7 @@ const AddCoinBtn = () => {
         isOpen={isOpen}
         onClickBackdrop={() => console.log('')}
         child={
-          <div className="bg-white w-[400px] rounded-2xl shadow relative">
+          <div className="bg-white w-[200px] sm:w-[400px] rounded-2xl shadow relative">
             <div className="p-6">
               <div>
                 <p className="text-xl font-bold mb-2">Add Your Coin</p>
