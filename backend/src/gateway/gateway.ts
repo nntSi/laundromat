@@ -8,11 +8,7 @@ import { Server } from 'socket.io';
 import { MachineService } from 'src/machine/machine.service';
 
 @Injectable()
-@WebSocketGateway(4000, {
-  namespace: 'socket',
-  transports: ['websocket'],
-  cors: { origin: '*' },
-})
+@WebSocketGateway({ cors: { origin: '*' } })
 export class LaundromatGateway implements OnModuleInit {
   constructor(private readonly machineService: MachineService) {}
   @WebSocketServer()
