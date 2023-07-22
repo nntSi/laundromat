@@ -1,6 +1,6 @@
 # LAUNDROMAT
 ```bash
-This application is for example of Dudee-Indeed co. ltd
+A Laundromat, also known as a launderette or coin laundry, is a facility where people can wash and dry their clothes using self-service machines.
 
 Created by : Wachirawit Sihawong
 ```
