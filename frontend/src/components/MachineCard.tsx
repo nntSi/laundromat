@@ -22,6 +22,9 @@ const MachineCard = ({ machine_obj }: Props) => {
     if (!customer) {
       return;
     }
+    if (customer.coin < machine_obj.price){
+      return alert('Your coin is not enough');
+    }
     void dispatch(
       customerUseMachine({
         coin: machine_obj.price,
