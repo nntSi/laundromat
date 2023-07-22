@@ -1,8 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
-  OnModuleInit,
+  Param,
+  Patch,
   Post,
   Query,
 } from '@nestjs/common';
@@ -30,5 +32,18 @@ export class MachineController {
         size: query.size ? parseInt(query.size) : undefined,
       },
     });
+  }
+
+  @Patch(':id')
+  async updateMachine(
+    @Param('id') id: string,
+    @Body() machine: Prisma.MachineUpdateInput,
+  ): Promise<Machine> {
+    return this.machineService.updateOne(parseInt(id), machine);
+  }
+
+  @Delete(':id')
+  async destroyMachine(@Param('id') id: string): Promise<Machine> {
+    return this.machineService.destroy(parseInt(id));
   }
 }

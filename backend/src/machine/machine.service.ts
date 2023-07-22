@@ -73,4 +73,8 @@ export class MachineService {
       throw new BadRequestException();
     }
   }
+
+  async destroy(id: number): Promise<Machine> {
+    return this.prismaService.machine.delete({ where: { id } });
+  }
 }
