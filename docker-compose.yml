@@ -5,19 +5,19 @@ networks:
     name: luandry_network
     driver: bridge
 services:
-  frontendapp:
-    build:
-      context: ./frontend
-    restart: always
-    ports:
-      - 4173:4173
-    volumes:
-      - ./frontend:/usr/app/frontend
-      - /usr/app/frontend/node_modules
-    depends_on:
-      - backendapp
-    networks:
-      - web_network
+  #frontendapp:
+  # build:
+  #    context: ./frontend
+  #  restart: always
+  #  ports:
+  #    - 4173:4173
+  #  volumes:
+  #    - ./frontend:/usr/app/frontend
+  #    - /usr/app/frontend/node_modules
+  #  depends_on:
+  #    - backendapp
+  #  networks:
+  #    - web_network
   backendapp:
     build:
       context: ./backend
